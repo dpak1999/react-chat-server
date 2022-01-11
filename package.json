@@ -5,6 +5,7 @@
   "repository": "https://github.com/dpak1999/react-chat-server.git",
   "author": "deepak <deepakkumardash313@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
