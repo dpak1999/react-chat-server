@@ -1,0 +1,22 @@
+{
+  "name": "react-chat-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/dpak1999/react-chat-server.git",
+  "author": "deepak <deepakkumardash313@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^11.0.0",
+    "express": "^4.17.2",
+    "getstream": "^7.4.1",
+    "nodemon": "^2.0.15",
+    "stream-chat": "^5.1.1",
+    "twilio": "^3.72.0"
+  }
+}
