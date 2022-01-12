@@ -1,18 +1,17 @@
 /** @format */
 
-import crypto from 'crypto';
-import bcrypt from 'bcrypt';
-import { connect } from 'getstream';
-import { StreamChat } from 'stream-chat';
+const { connect } = require('getstream');
+const bcrypt = require('bcrypt');
+const StreamChat = require('stream-chat').StreamChat;
+const crypto = require('crypto');
 
 const api_key = process.env.STREAM_API_KEY;
 const api_secret = process.env.STREAM_API_SECRET;
 const app_id = process.env.STREAM_APP_ID;
 
-export const signUp = async (req, res) => {
+const signUp = async (req, res) => {
   try {
     const { fullName, username, password, phoneNumber } = req.body;
-
     const userId = crypto.randomBytes(16).toString('hex');
     const serverClient = connect(api_key, api_secret, app_id);
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -27,7 +26,7 @@ export const signUp = async (req, res) => {
   }
 };
 
-export const signIn = async (req, res) => {
+const signIn = async (req, res) => {
   try {
     const { username, password } = req.body;
     const serverClient = connect(api_key, api_secret, app_id);
@@ -57,3 +56,5 @@ export const signIn = async (req, res) => {
     res.status(500).json({ message: error });
   }
 };
+
+module.exports = { signIn, signUp };

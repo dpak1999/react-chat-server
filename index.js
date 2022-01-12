@@ -1,18 +1,18 @@
 /** @format */
 
-import dotenv from 'dotenv';
-import express from 'express';
-import cors from 'cors';
-dotenv.config();
-
-// routes
-import authroutes from './routes/auth.js';
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
 
 const PORT = process.env.PORT;
 const app = express();
 app.use(cors());
-// app.use(express.json());
-// app.use(express.urlencoded());
+app.use(express.json());
+app.use(express.urlencoded());
+// app.options('*', cors());
+
+// routes
+const authroutes = require('./routes/auth');
 
 app.get('/', (req, res) => {
   res.send('Hello world');
